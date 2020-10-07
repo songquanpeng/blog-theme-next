@@ -1,4 +1,4 @@
-<div class="pagination" role="navigation" aria-label="pagination">
-    <a class="pagination-previous shadow-box" href="<%= prev ? "/pagination/"+prev : "."%>">Previous</a>
-    <a class="pagination-next shadow-box" href="<%= next ? "/pagination/"+next : "."%>">Next Page</a>
-</div>
+<nav class="pagination" style="opacity: 1; display: block; text-align: center">
+    <a class="extend prev" rel="prev" href="<%= prev ? "/pagination/"+prev : "."%>" data-pjax-state=""><i class="fa fa-angle-left"></i></a>
+    <a class="extend next" rel="next" href="<%= next ? "/pagination/"+next : "."%>" data-pjax-state=""><i class="fa fa-angle-right"></i></a>
+</nav>

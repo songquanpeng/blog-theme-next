@@ -38,7 +38,9 @@
                     </header>
 
                     <div class="post-body" itemprop="articleBody" style="opacity: 1; display: block; transform: translateY(0px);">
-                        <p><%= page.description ? page.description : "No description" %></p>
+                        <div style="text-align: center">
+                            <p><%= page.description ? page.description : "No description" %></p>
+                        </div>
                         <div class="post-button">
                             <a class="btn" href="/page/<%= page.link %>" rel="contents" data-pjax-state="">
                                 Read more »

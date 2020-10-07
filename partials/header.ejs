@@ -6,7 +6,16 @@
     <meta name="theme-color" content="#222">
     <link rel="stylesheet" href="/static/css/main.css">
     <link rel="stylesheet" href="/static/lib/font-awesome/css/all.min.css">
-
+    <%if(page !== undefined){%>
+        <title><%= page.title %></title>
+        <meta name="description" content="<%= page.description %>"/>
+    <%} else{%>
+        <title><%= config.title %></title>
+        <meta name="description" content="<%= config.description %>"/>
+    <%}%>
+    <link rel="stylesheet" href="<%= config.code_theme %>" media="none" onload="this.media='all'">
+    <link rel="shortcut icon" href="<%- config.favicon %>">
+    <%- config.extra_header_code %>
     <script id="hexo-configurations">
       var NexT = window.NexT || {};
       var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
@@ -20,8 +29,6 @@
         lang   : 'en'
       };
     </script>
-
-    <title>Hexo</title>
     <noscript>
         <style>
             .use-motion .brand,
@@ -59,14 +66,13 @@
                         <span class="toggle-line toggle-line-last"></span>
                     </div>
                 </div>
-
                 <div class="site-meta">
-
-                    <a href="/" class="brand" rel="start">
+                    <a href="/" class="brand" rel="start" data-pjax-state="" style="opacity: 1;">
                         <span class="logo-line-before"><i></i></span>
-                        <h1 class="site-title">Hexo</h1>
+                        <h1 class="site-title" style="opacity: 1; top: 0px;"><%= config.site_name %></h1>
                         <span class="logo-line-after"><i></i></span>
                     </a>
+                    <p class="site-subtitle" itemprop="description" style="opacity: 1; top: 0px;"><%= config.description %></p>
                 </div>
 
                 <div class="site-nav-right">
@@ -84,7 +90,7 @@
                         <a href="/page/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
                     </li>
                     <li class="menu-item menu-item-link">
-                        <a href="/page/link" rel="section"><i class="fa fa-link fa-fw"></i>Links</a>
+                        <a href="/page/links/" rel="section"><i class="fa fa-link fa-fw"></i>Links</a>
                     </li>
                     <li class="menu-item menu-item-archives">
                         <a href="/archive/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>

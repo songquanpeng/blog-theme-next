@@ -1,17 +1,19 @@
 <%- include('./partials/header') %>
-
-<div class="container article-container raw">
-    <article class="shadow-box" style="padding: 16px">
+<div class="index posts-expand">
+    <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="en" style="opacity: 1; display: block;">
         <%- include('./partials/page-info') %>
-        <div style="margin-top: 16px"></div>
-        <div class="raw-content">
+        <div class="post-body" itemprop="articleBody" style="opacity: 1; display: block; transform: translateY(0px);">
             <%-page.content%>
+            <p class="copyright"><strong>Links: <a href="<%-page.link%>"><%-page.link%></a></strong></p>
             <%- config.copyright %>
             <%- config.ad %>
         </div>
+
+        <footer class="post-footer">
+            <%- include('./partials/prev-next') %>
+        </footer>
     </article>
-    <%- include('./partials/prev-next') %>
-    <%- include('./partials/comment') %>
 </div>
 
+<%- include('./partials/comment') %>
 <%- include('./partials/footer') %>

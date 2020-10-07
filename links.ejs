@@ -1,27 +1,31 @@
 <%- include('./partials/header') %>
-<div class="container article-container">
-    <article style="padding: 16px">
+<div class="index posts-expand">
+    <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="en" style="opacity: 1; display: block;">
         <%- include('./partials/page-info') %>
-    </article>
-    <% if (linkList && linkList.length){ %>
-        <% linkList.forEach((link)=>{ %>
-        <div class="link-card">
-            <%if(link && link.image ===""){
-                if(link.link.endsWith("/")) {
-                    link.image  = link.link + "favicon.ico";
-                }else {
-                    link.image  = link.link + "/favicon.ico";
-                }
-            }%>
-            <a href="<%= link.link %>"><img loading="lazy" class="image" src="<%= link.image %>"  alt="⚠️"/></a>
-            <div class="info">
-                <div class="title"><%= link.title %></div>
-                <div class="description"><%= link.description %></div>
-            </div>
+        <div class="post-body" itemprop="articleBody" style="opacity: 1; display: block; transform: translateY(0px);">
+            <% if (linkList && linkList.length){ %>
+                <% linkList.forEach((link)=>{ %>
+                <div class="link-card">
+                    <%if(link && link.image ===""){
+                        if(link.link.endsWith("/")) {
+                            link.image  = link.link + "favicon.ico";
+                        }else {
+                            link.image  = link.link + "/favicon.ico";
+                        }
+                    }%>
+                    <img loading="lazy" class="image" src="<%= link.image %>"  alt="⚠️"/>
+                    <div class="info">
+                        <div class="title"><a href="<%= link.link %>"><%= link.title %></a></div>
+                        <div class="description"><%= link.description %></div>
+                    </div>
+                </div>
+            <% })} %>
         </div>
-    <% })} %>
-    <%- include('./partials/prev-next') %>
-    <%- include('./partials/comment') %>
+
+        <footer class="post-footer">
+            <%- include('./partials/prev-next') %>
+        </footer>
+    </article>
 </div>
 
 <style>
@@ -58,6 +62,8 @@
     .link-card .description {
         font-size: 0.875em;
     }
+
 </style>
 
+<%- include('./partials/comment') %>
 <%- include('./partials/footer') %>

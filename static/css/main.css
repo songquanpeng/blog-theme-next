@@ -235,7 +235,6 @@ span.exturl:hover {
     color: var(--link-hover-color);
 }
 iframe,
-img,
 video {
     display: block;
     margin-left: auto;
@@ -1754,7 +1753,6 @@ pre .javascript .function {
     visibility: visible;
 }
 .post-body iframe,
-.post-body img,
 .post-body video {
     margin-bottom: 20px;
 }

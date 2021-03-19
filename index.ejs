@@ -14,14 +14,14 @@
                                 <i class="fa fa-calendar-o"></i>
                               </span>
                               <span class="post-meta-item-text">Posted on</span>
-                              <time><%= page.post_time.substring(0, 10) %></time>
+                              <time><%= page.createdAt.substring(0, 10) %></time>
                             </span>
                             <span class="post-meta-item">
                             <span class="post-meta-item-icon">
                               <i class="fa fa-calendar-check-o"></i>
                             </span>
                             <span class="post-meta-item-text">Edited on</span>
-                              <time><%= page.edit_time.substring(0, 10) %></time>
+                              <time><%= page.updatedAt.substring(0, 10) %></time>
                           </span>
                             <span class="post-meta-item">
                           <span class="post-meta-item-icon">

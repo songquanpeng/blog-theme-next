@@ -17,17 +17,17 @@
             </script>
         <% } else { %>
             <div class="container article-container" id="comment" style="margin-top: 16px;margin-bottom: 16px">
-                <h3>Comment</h3>
+                <h3>File</h3>
                 <div class="comment">
                     <br>
                     <form action="/api/comment" method="post">
                         <div class="form-group">
                             <label class="label">Title</label>
-                            <input type="text" class="form-control" placeholder="Comment title" id="title" name="title">
+                            <input type="text" class="form-control" placeholder="File title" id="title" name="title">
                         </div>
                         <div class="form-group">
                             <label class="label">Content</label>
-                            <textarea type="text" class="form-control" placeholder="Comment content" id="content" name="content" required></textarea>
+                            <textarea type="text" class="form-control" placeholder="File content" id="content" name="content" required></textarea>
                         </div>
                         <div class="form-row">
                             <div class="col">
@@ -74,7 +74,7 @@
                             <div class="card-body">
                                 <p class="card-text"><%- comment.content ? comment.content : "No content" %></p>
                                 <span class="card-link"><%= comment.author ? comment.author : "Anonymous" %></span>
-                                <span class="card-link"><time datetime="2016-1-1"><%= comment.post_time %></time></span>
+                                <span class="card-link"><time datetime="2016-1-1"><%= comment.createdAt %></time></span>
                             </div>
                         </div>
                     <% })%>

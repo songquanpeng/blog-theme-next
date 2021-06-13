@@ -132,61 +132,6 @@ NexT.motion.middleWares = {
     integrator.next();
   },
 
-  postList: function(integrator) {
-    var postBlock = document.querySelectorAll(
-      '.post-block, .pagination, .comments'
-    );
-    var postBlockTransition = CONFIG.motion.transition.post_block;
-    var postHeader = document.querySelectorAll('.post-header');
-    var postHeaderTransition = CONFIG.motion.transition.post_header;
-    var postBody = document.querySelectorAll('.post-body');
-    var postBodyTransition = CONFIG.motion.transition.post_body;
-    var collHeader = document.querySelectorAll('.collection-header');
-    var collHeaderTransition = CONFIG.motion.transition.coll_header;
-
-    if (postBlock.length > 0) {
-      var postMotionOptions = window.postMotionOptions || {
-        stagger: 100,
-        drag: true,
-        complete: function() {
-          integrator.next();
-        }
-      };
-
-      if (CONFIG.motion.transition.post_block) {
-        Velocity(
-          postBlock,
-          'transition.' + postBlockTransition,
-          postMotionOptions
-        );
-      }
-      if (CONFIG.motion.transition.post_header) {
-        Velocity(
-          postHeader,
-          'transition.' + postHeaderTransition,
-          postMotionOptions
-        );
-      }
-      if (CONFIG.motion.transition.post_body) {
-        Velocity(
-          postBody,
-          'transition.' + postBodyTransition,
-          postMotionOptions
-        );
-      }
-      if (CONFIG.motion.transition.coll_header) {
-        Velocity(
-          collHeader,
-          'transition.' + collHeaderTransition,
-          postMotionOptions
-        );
-      }
-    }
-    if (CONFIG.scheme === 'Pisces' || CONFIG.scheme === 'Gemini') {
-      integrator.next();
-    }
-  },
-
   sidebar: function(integrator) {
     var sidebarAffix = document.querySelector('.sidebar-inner');
     var sidebarAffixTransition = CONFIG.motion.transition.sidebar;

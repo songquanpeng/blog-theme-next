@@ -28,7 +28,7 @@
                             <i class="fa fa-folder-o"></i>
                           </span>
                           <span class="post-meta-item-text">In</span>
-                            <% page.tag.trim().split(" ").forEach(function (tag) { if(tag !== ""){ %>
+                            <% page.tag.trim().split(";").forEach(function (tag) { if(tag !== ""){ %>
                                     <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                                         <a href='/tag/<%= tag %>' itemprop="url" rel="index" data-pjax-state=""><span itemprop="name"><%= tag %></span></a>
                                     </span>
